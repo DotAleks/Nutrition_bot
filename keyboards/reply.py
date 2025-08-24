@@ -18,17 +18,42 @@ def main_menu_kb() -> ReplyKeyboardMarkup:
     """
     builder = ReplyKeyboardBuilder()
     
-    try:
-        builder = ReplyKeyboardBuilder()
-        
-        builder.add(KeyboardButton(text="Text"))
-        builder.adjust(1)
+    try: 
+        builder.add(KeyboardButton(text="Вес"))
+        builder.add(KeyboardButton(text="Вода"))
+        builder.add(KeyboardButton(text="КБЖУ"))
+        builder.adjust(2)
         
         return builder.as_markup(
             resize_keyboard=True, 
             input_field_placeholder="Нажмите на кнопку"
         )
         
+    except TypeError:
+        return builder.as_markup()
+        
+    except ValueError:
+        return builder.as_markup()
+        
+    except Exception:
+        return builder.as_markup()
+
+def kbju_kb() -> ReplyKeyboardMarkup:
+    """
+    """
+
+    builder = ReplyKeyboardBuilder()
+
+    try:
+        builder.add(KeyboardButton(text="Съеденное КБЖУ"))
+        builder.add(KeyboardButton(text="Добавить блюдо/продукт в КБЖУ"))
+        builder.add(KeyboardButton(text="Создать блюдо/продукт в список"))
+        builder.add(KeyboardButton(text="Назад"))
+        builder.adjust(1)
+
+        return builder.as_markup(            resize_keyboard=True, 
+            input_field_placeholder="Нажмите на кнопку"
+            )
     except TypeError:
         return builder.as_markup()
         
